@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ============================================================
+    THE FINANCIAL WELLNESS CO.
+    Version: 1.13
+    Built: 2026-03-02 (v1.13 — 22 Years back to 22 Yrs, upright confirmed)
+    File: index.html
+    Hosting: GitHub Pages (single file, no build tools needed)
+    ============================================================
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Financial Wellness Co. | Financial Health. Mental Wealth.</title>
+  <meta name="description" content="Personalized debt payoff strategies and budget coaching for couples ready to reach their Debt Free Date." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Favicon: FW in teal -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%236AAB9C'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='14' fill='white'>FW</text></svg>" />
+
+  <style>
+    /* ============================================================
+       CSS VARIABLES & RESET
+       ============================================================ */
+    :root {
+      --teal:       #6AAB9C;
+      --teal-dark:  #4e8f81;
+      --charcoal:   #2D2D2D;
+      --white:      #FFFFFF;
+      --gray:       #888888;
+      --gray-light: #F7F7F7;
+      --gray-border: #E8E8E8;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+      --nav-height:  72px;
+      --max-width:   1120px;
+      --section-pad: 100px 24px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--charcoal);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============================================================
+       SECTION 1 — NAVIGATION
+       ============================================================ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid var(--gray-border);
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--charcoal);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      color: var(--gray);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--teal); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--charcoal);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* Mobile nav overlay */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-height);
+      left: 0; right: 0; bottom: 0;
+      background: var(--white);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      letter-spacing: 0.02em;
+    }
+
+    /* ============================================================
+       SECTION 2 — HERO
+       ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 0 24px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10, 18, 16, 0.32) 0%,
+        rgba(10, 18, 16, 0.42) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      animation: fadeUp 1s ease both;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.06em;
+      margin-bottom: 14px;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-body);
+      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+      font-weight: 400;
+      color: rgba(255,255,255,0.88);
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.8vw, 3.2rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 40px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 14px 36px;
+      background: var(--charcoal);
+      color: var(--white);
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: var(--teal);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      display: inline-block;
+      padding: 14px 36px;
+      background: transparent;
+      color: var(--white);
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border: 1.5px solid rgba(255,255,255,0.6);
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-1px);
+    }
+
+    /* ============================================================
+       SECTION 3 — IMPACT STATS
+       ============================================================ */
+    .impact {
+      padding: var(--section-pad);
+      background: var(--white);
+      text-align: center;
+    }
+
+    .impact-label {
+      font-size: 1.05rem;
+      color: var(--charcoal);
+      letter-spacing: 0.01em;
+      font-weight: 400;
+      margin-bottom: 56px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .impact-grid {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .impact-stat {
+      flex: 1;
+      padding: 0 48px;
+      text-align: center;
+      align-self: flex-start;
+    }
+
+    .impact-stat-label {
+      font-size: 0.75rem;
+      color: var(--gray);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .impact-stat-number {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 64px !important;
+      font-weight: 700;
+      font-style: normal !important;
+      color: #6AAB9C;
+      opacity: 1;
+      line-height: 1;
+      margin-bottom: 8px;
+      white-space: nowrap;
+      font-variant: normal;
+      font-variant-numeric: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .impact-stat-desc {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.5;
+      max-width: 200px;
+      margin: 0 auto;
+    }
+
+    .impact-divider-v {
+      width: 1px;
+      height: 120px;
+      background: #C8C8C8;
+      flex-shrink: 0;
+      align-self: flex-start;
+      margin-top: 8px;
+    }
+
+    .impact-stat-translation {
+      font-size: 0.8125rem;
+      font-style: italic;
+      color: #888888;
+      margin-top: 10px;
+      max-width: 220px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    /* ============================================================
+       SECTION 4 — STATS STRIP
+       ============================================================ */
+    .stats-strip {
+      border-top: 1px solid var(--gray-border);
+      border-bottom: 1px solid var(--gray-border);
+      padding: 52px 24px;
+      background: var(--white);
+    }
+
+    .stats-strip-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .strip-stat {
+      flex: 1;
+      text-align: center;
+      padding: 0 20px;
+      vertical-align: top;
+      align-self: flex-start;
+    }
+
+    .strip-stat-number {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 5vw, 4rem);
+      font-weight: 800;
+      font-style: normal !important;
+      color: #6AAB9C;
+      opacity: 1;
+      line-height: 1;
+      margin-bottom: 10px;
+      font-variant-numeric: tabular-nums;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .stat-in {
+      font-size: 0.42em;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: #6AAB9C;
+      opacity: 1;
+      vertical-align: middle;
+      text-transform: lowercase;
+      display: inline-block;
+    }
+
+    .strip-stat-desc {
+      font-size: 0.875rem;
+      color: var(--gray);
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .strip-stat-translation {
+      font-size: 0.8125rem;
+      font-style: italic;
+      color: #888888;
+      margin-top: 8px;
+      line-height: 1.5;
+      max-width: 180px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .strip-divider {
+      width: 1px;
+      height: 56px;
+      background: var(--gray-border);
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       SECTION 5 — HOW IT WORKS
+       ============================================================ */
+    .how {
+      padding: var(--section-pad);
+      background: var(--white);
+    }
+
+    .section-eyebrow {
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 80px;
+    }
+
+    .how-step {
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      max-width: 1000px;
+      margin: 0 auto 96px;
+    }
+
+    .how-step:last-child { margin-bottom: 0; }
+
+    .how-step.reverse { flex-direction: row-reverse; }
+
+    .how-step-text { flex: 1; }
+
+    .step-number {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 300;
+      color: var(--teal);
+      opacity: 0.35;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .step-desc {
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 420px;
+    }
+
+    .how-step-photo {
+      flex: 1;
+      aspect-ratio: 4/3;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--gray-light);
+    }
+
+    .how-step-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ============================================================
+       SECTION 6 — WHAT WE OFFER
+       ============================================================ */
+    .offer {
+      padding: var(--section-pad);
+      background: var(--gray-light);
+    }
+
+    .offer-heading {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 56px;
+    }
+
+    .offer-signature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: var(--max-width);
+      margin: 0 auto 64px;
+    }
+
+    .offer-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 48px 40px;
+      border: 1px solid var(--gray-border);
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+
+    .offer-card:hover {
+      box-shadow: 0 16px 48px rgba(106,171,156,0.12);
+      transform: translateY(-3px);
+    }
+
+    .offer-card-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 600;
+      margin-bottom: 16px;
+      border: 1px solid var(--teal);
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    .offer-card-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .offer-card-desc {
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* A la carte */
+    .offer-alacarte-label {
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 28px;
+    }
+
+    .offer-alacarte {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: var(--max-width);
+      margin: 0 auto 32px;
+    }
+
+    .alacarte-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+      border: 1px solid var(--gray-border);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      letter-spacing: 0.01em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .alacarte-card:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    .offer-closing {
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--gray);
+      font-style: italic;
+    }
+
+    /* ============================================================
+       SECTION 7 — TESTIMONIALS
+       ============================================================ */
+    .testimonials {
+      padding: var(--section-pad);
+      background: var(--white);
+    }
+
+    .testimonials-heading {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 56px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: var(--gray-light);
+      border-radius: 20px;
+      padding: 40px 36px;
+    }
+
+    .testimonial-quote {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .testimonial-attr {
+      font-size: 0.8rem;
+      color: var(--gray);
+      letter-spacing: 0.04em;
+    }
+
+    /* ============================================================
+       SECTION 8 — ABOUT
+       ============================================================ */
+    .about {
+      padding: var(--section-pad);
+      background: var(--gray-light);
+    }
+
+    .about-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-photo-wrap {
+      aspect-ratio: 4/5;
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-initials {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.05em;
+    }
+
+    .about-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .about-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .about-title {
+      font-size: 0.85rem;
+      color: var(--teal);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+
+    .about-bio {
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .about-tagline {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       SECTION 9 — CTA + CONTACT FORM
+       ============================================================ */
+    .cta {
+      padding: var(--section-pad);
+      background: var(--white);
+      text-align: center;
+    }
+
+    .cta-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .cta-subtext {
+      font-size: 0.95rem;
+      color: var(--gray);
+      margin-bottom: 56px;
+      letter-spacing: 0.02em;
+    }
+
+    .contact-form {
+      max-width: 560px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .form-field label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      background: var(--gray-light);
+      border: 1px solid var(--gray-border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      resize: none;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(106,171,156,0.15);
+    }
+
+    .form-field textarea { min-height: 130px; }
+
+    .btn-submit {
+      margin-top: 8px;
+      padding: 16px 40px;
+      background: var(--charcoal);
+      color: var(--white);
+      border: none;
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      align-self: center;
+    }
+
+    .btn-submit:hover {
+      background: var(--teal);
+      transform: translateY(-2px);
+    }
+
+    /* Form success message */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px;
+      background: rgba(106,171,156,0.08);
+      border-radius: 20px;
+      border: 1px solid rgba(106,171,156,0.3);
+    }
+
+    .form-success h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+
+    .form-success p {
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    /* ============================================================
+       SECTION 10 — FOOTER
+       ============================================================ */
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--gray-border);
+      padding: 40px 24px;
+    }
+
+    .footer-main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .footer-logo {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--charcoal);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--gray);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--teal); }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    .footer-legal {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid var(--gray-border);
+      font-size: 0.72rem;
+      color: var(--gray);
+      font-style: italic;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       ANIMATIONS
+       ============================================================ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
+       RESPONSIVE — MOBILE
+       ============================================================ */
+    @media (max-width: 768px) {
+
+      :root { --section-pad: 72px 20px; }
+
+      /* Nav */
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      /* Hero */
+      .hero-headline { font-size: 2.6rem; }
+
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .hero-buttons .btn-primary,
+      .hero-buttons .btn-ghost {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+      }
+
+      /* Impact */
+      .impact-grid {
+        flex-direction: column;
+        gap: 48px;
+      }
+
+      .impact-divider-v {
+        width: 60px;
+        height: 1px;
+      }
+
+      .impact-stat { padding: 0; }
+
+      /* Stats strip */
+      .stats-strip-inner {
+        flex-wrap: wrap;
+        gap: 0;
+      }
+
+      .strip-stat {
+        flex: 0 0 50%;
+        padding: 24px 12px;
+        border-bottom: 1px solid var(--gray-border);
+      }
+
+      .strip-stat:nth-child(odd) { border-right: 1px solid var(--gray-border); }
+
+      .strip-divider { display: none; }
+
+      /* How it works */
+      .how-step,
+      .how-step.reverse {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .step-desc { max-width: 100%; }
+
+      /* Offer */
+      .offer-signature { grid-template-columns: 1fr; }
+      .offer-alacarte { grid-template-columns: 1fr 1fr; }
+
+      /* Testimonials */
+      .testimonials-grid { grid-template-columns: 1fr; }
+
+      /* About */
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      /* Footer */
+      .footer-main {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+      }
+
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
+
+      /* Buttons full width on mobile */
+      .btn-submit { width: 100%; max-width: 360px; }
+    }
+
+    @media (max-width: 480px) {
+      .offer-alacarte { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       SECTION 1 — NAVIGATION
+       ============================================================ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">The Financial Wellness Co.</a>
+
+      <ul class="nav-links">
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#offer">What We Offer</a></li>
+        <li><a href="#contact">Get Started</a></li>
+      </ul>
+
+      <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#how" onclick="toggleMenu()">How It Works</a>
+    <a href="#offer" onclick="toggleMenu()">What We Offer</a>
+    <a href="#contact" onclick="toggleMenu()">Get Started</a>
+  </div>
+
+
+  <!-- ============================================================
+       SECTION 2 — HERO
+       ============================================================ -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Your next chapter begins on the other side of debt.</p>
+      <h1 class="hero-headline">Financial Health. Mental Wealth.</h1>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">Let's Talk</a>
+        <a href="#how" class="btn-ghost">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 3 — IMPACT STATS
+       ============================================================ -->
+  <section class="impact">
+    <p class="impact-label">Most people never stop to do the math. Here's what it actually costs.</p>
+
+    <div class="impact-grid">
+      <div class="impact-stat">
+        <p class="impact-stat-label">Minimum Payments =</p>
+        <p class="impact-stat-number" style="font-style:normal;">22 Yrs</p>
+        <p class="impact-stat-desc">to become debt free making only minimum payments</p>
+        <p class="impact-stat-translation">That&#8217;s $18,500 in interest &#8212; on top of what you already owe.</p>
+      </div>
+
+      <div class="impact-divider-v"></div>
+
+      <div class="impact-stat">
+        <p class="impact-stat-label">Couples</p>
+        <p class="impact-stat-number">41%</p>
+        <p class="impact-stat-desc">say money is their #1 source of conflict</p>
+        <p class="impact-stat-translation">Debt doesn&#8217;t stay in your wallet. It follows you everywhere.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 4 — STATS STRIP
+       ============================================================ -->
+  <section class="stats-strip">
+    <div class="stats-strip-inner">
+
+      <div class="strip-stat">
+        <p class="strip-stat-number">65%</p>
+        <p class="strip-stat-desc">living paycheck to paycheck</p>
+        <p class="strip-stat-translation">One unexpected bill away from falling behind.</p>
+      </div>
+
+      <div class="strip-divider"></div>
+
+      <div class="strip-stat">
+        <p class="strip-stat-number">2 <span class="stat-in">in</span> 3</p>
+        <p class="strip-stat-desc">put a dream on hold</p>
+        <p class="strip-stat-translation">The vacation. The house. The baby. Still waiting.</p>
+      </div>
+
+      <div class="strip-divider"></div>
+
+      <div class="strip-stat">
+        <p class="strip-stat-number">1 <span class="stat-in">in</span> 3</p>
+        <p class="strip-stat-desc">can't cover a $400 emergency</p>
+        <p class="strip-stat-translation">One surprise bill away from sliding backward.</p>
+      </div>
+
+      <div class="strip-divider"></div>
+
+      <div class="strip-stat">
+        <p class="strip-stat-number">27%</p>
+        <p class="strip-stat-desc">have zero emergency savings</p>
+        <p class="strip-stat-translation">No cushion means every surprise becomes a crisis.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 5 — HOW IT WORKS
+       ============================================================ -->
+  <section class="how" id="how">
+    <p class="section-eyebrow">Here's How It Works</p>
+
+    <!-- Step 01 -->
+    <div class="how-step">
+      <div class="how-step-text">
+        <p class="step-number">01</p>
+        <h3 class="step-title">Crush the Debt</h3>
+        <p class="step-desc">A personalized debt payoff strategy built to reach your Debt Free Date faster. Not someday — an actual date.</p>
+      </div>
+      <div class="how-step-photo">
+        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Couple reviewing finances together" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Step 02 -->
+    <div class="how-step reverse">
+      <div class="how-step-text">
+        <p class="step-number">02</p>
+        <h3 class="step-title">Build Your Budget</h3>
+        <p class="step-desc">Every dollar finally has a job. No more wondering where it all went.</p>
+      </div>
+      <div class="how-step-photo">
+        <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80" alt="Notebook and budget planning" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Step 03 -->
+    <div class="how-step">
+      <div class="how-step-text">
+        <p class="step-number">03</p>
+        <h3 class="step-title">Your Money Starts Working for You</h3>
+        <p class="step-desc">With debt gone and a budget that works, you're finally building something. Not just getting by.</p>
+      </div>
+      <div class="how-step-photo">
+        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&q=80" alt="Person with arms open in freedom outdoors" loading="lazy" />
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 6 — WHAT WE OFFER
+       ============================================================ -->
+  <section class="offer" id="offer">
+    <h2 class="offer-heading">What We Work On Together</h2>
+
+    <!-- Signature Services -->
+    <div class="offer-signature">
+      <div class="offer-card">
+        <span class="offer-card-badge">Signature Service</span>
+        <h3 class="offer-card-title">The Momentum Method™</h3>
+        <p class="offer-card-desc">A personalized debt payoff strategy built to reach your Debt Free Date faster.</p>
+      </div>
+
+      <div class="offer-card">
+        <span class="offer-card-badge">Signature Service</span>
+        <h3 class="offer-card-title">The Budget Remodel™</h3>
+        <p class="offer-card-desc">A complete rebuild of how your money works — every dollar works for you.</p>
+      </div>
+    </div>
+
+    <!-- A La Carte -->
+    <p class="offer-alacarte-label">More Ways We Can Help</p>
+
+    <div class="offer-alacarte">
+      <div class="alacarte-card">Financial Triage</div>
+      <div class="alacarte-card">Life Event Planning</div>
+      <div class="alacarte-card">Savings Strategy</div>
+      <div class="alacarte-card">Credit Optimization</div>
+    </div>
+
+    <p class="offer-closing">Don't see what you need? Just reach out.</p>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 7 — TESTIMONIALS
+       ============================================================ -->
+  <section class="testimonials">
+    <h2 class="testimonials-heading">What Clients Say</h2>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"This changed how we think about money completely. We finally have a plan."</p>
+        <p class="testimonial-attr">— Sarah & Mike, Phoenix AZ</p>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"We had no idea our debt free date was this close. Game changer."</p>
+        <p class="testimonial-attr">— Tom & Lisa, Denver CO</p>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"The Budget Remodel showed us exactly where our money was going. Eye opening."</p>
+        <p class="testimonial-attr">— James & Katie, Austin TX</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 8 — ABOUT
+       ============================================================ -->
+  <section class="about" id="about">
+    <div class="about-inner">
+
+      <div class="about-photo-wrap">
+        <span class="about-initials">JS</span>
+      </div>
+
+      <div class="about-text">
+        <p class="about-eyebrow">About</p>
+        <h2 class="about-name">Hi, I'm Jeff.</h2>
+        <p class="about-title">Founder</p>
+        <p class="about-bio">I started The Financial Wellness Co. because I believe everyone deserves a clear path to financial freedom — not someday, but with an actual date. Through The Momentum Method™ and The Budget Remodel™ I help couples and families get out of debt, build better budgets and start building the life they actually want.</p>
+        <p class="about-tagline">Financial strategist. Debt freedom advocate. On a mission to make financial wellness accessible.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 9 — CTA + CONTACT FORM
+       ============================================================ -->
+  <section class="cta" id="contact">
+    <h2 class="cta-heading">Ready when you are.</h2>
+    <p class="cta-subtext">Your Debt Free Date exists. Let's set it.</p>
+
+    <!-- Replace YOUR_FORMSPREE_ID below with your actual Formspree endpoint -->
+    <form
+      class="contact-form"
+      id="contactForm"
+      action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+      method="POST"
+    >
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+      </div>
+
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required />
+      </div>
+
+      <div class="form-field">
+        <label for="message">What brings you here?</label>
+        <textarea id="message" name="message" placeholder="Tell me a little about your situation…"></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Start Your Debt Free Date</button>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      <h3>Message received.</h3>
+      <p>I'll be in touch shortly. Your Debt Free Date is closer than you think.</p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 10 — FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="footer-main">
+      <span class="footer-logo">The Financial Wellness Co.</span>
+
+      <ul class="footer-links">
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#offer">What We Offer</a></li>
+        <li><a href="#contact">Get Started</a></li>
+      </ul>
+
+      <span class="footer-copy">© 2026 The Financial Wellness Co. All rights reserved.</span>
+    </div>
+
+    <p class="footer-legal">
+      The Financial Wellness Co. provides financial education and guidance only. We are not licensed financial advisors. Nothing on this site constitutes financial advice.
+    </p>
+  </footer>
+
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script>
+    // ---- Mobile hamburger menu ----
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('mobileMenu');
+      const hamburger = document.querySelector('.hamburger');
+      if (menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
+
+    // ---- Formspree AJAX submission ----
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+      const submitBtn = form.querySelector('.btn-submit');
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          successMsg.style.display = 'block';
+        } else {
+          submitBtn.textContent = 'Something went wrong — try again';
+          submitBtn.disabled = false;
+        }
+      } catch (err) {
+        submitBtn.textContent = 'Something went wrong — try again';
+        submitBtn.disabled = false;
+      }
+    });
+
+    // ---- Smooth active nav highlighting ----
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.style.color = link.getAttribute('href') === '#' + entry.target.id
+              ? '#6AAB9C'
+              : '';
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>
