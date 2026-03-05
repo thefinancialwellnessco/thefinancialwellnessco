@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Financial Wellness Co. — Pricing</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --sage: #7ca19c;
+  --sage-dark: #5a8a85;
+  --sage-deep: #3d6b66;
+  --sage-light: #a8c5c1;
+  --sage-pale: #e8f0ef;
+  --sage-ultra: #f0f6f5;
+  --gold: #c4a882;
+  --gold-light: #f0e8dc;
+  --text-dark: #2e3f40;
+  --text-mid: #5c6e6f;
+  --text-light: #8a9e9f;
+  --bg: #fafaf8;
+  --bg-section: #f4f7f6;
+  --border: #d4e2e0;
+  --white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-dark); line-height: 1.6; }
+
+/* ── HERO ── */
+.hero {
+  text-align: center;
+  padding: 44px 24px 40px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 50% 0%, #e8f0ef 0%, transparent 70%);
+  pointer-events: none;
+}
+.location-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 20px;
+  display: block;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 700;
+  color: var(--sage-dark);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.tagline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.hero-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--text-dark);
+  max-width: 640px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* ── SECTION HEADER ── */
+.section-wrap {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 72px 24px 40px;
+}
+.section-eyebrow {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 12px;
+}
+.section-heading {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+.section-sub {
+  text-align: center;
+  font-size: 15px;
+  color: var(--text-mid);
+  max-width: 520px;
+  margin: 0 auto 52px;
+}
+
+/* ── CARDS ── */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  grid-template-rows: auto auto auto 1fr auto;
+  gap: 0 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.card {
+  display: grid;
+  grid-row: 1 / -1;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 40px 36px;
+  position: relative;
+  background: var(--white);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.09);
+  border-color: #7A9E9A;
+}
+.card.budget {
+  background: #FAFCFB;
+}
+.card.featured {
+  background: #ffffff;
+  border-color: var(--border);
+  box-shadow: none;
+}
+.card.bundle {
+  border: 2px solid #5B8C87;
+  background: #FAF6EE;
+  box-shadow: 0 4px 20px rgba(91,140,135,0.10);
+}
+.card.bundle:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 44px rgba(91,140,135,0.18);
+  border-color: #3D6E69;
+}
+
+.card-top {
+  margin-bottom: 0;
+}
+
+@media(max-width: 900px) {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: unset;
+    gap: 20px;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    grid-row: unset;
+    grid-template-rows: unset;
+  }
+  .card.bundle {
+    grid-column: 1 / -1;
+  }
+}
+
+@media(max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .card.bundle {
+    grid-column: unset;
+  }
+  .card {
+    padding: 28px 22px;
+  }
+  .card h2 {
+    font-size: 20px;
+  }
+  .price-block .amt {
+    font-size: 40px;
+  }
+}
+
+.pill-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 18px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.pill-badge.sage { background: var(--sage); color: #fff; }
+.pill-badge.gold { background: var(--gold); color: #fff; }
+
+.card-tier {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--sage-light);
+  margin-bottom: 8px;
+}
+.card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+.card .card-tagline {
+  font-size: 13.5px;
+  color: var(--text-mid);
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.price-block { margin-top: 24px; margin-bottom: 32px; }
+.price-block .amt {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1;
+}
+.price-block .amt sup {
+  font-size: 24px;
+  vertical-align: super;
+  font-weight: 600;
+}
+.price-block .price-note {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 5px;
+  letter-spacing: 0.5px;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 24px;
+}
+
+.features {
+  list-style: none;
+  margin-bottom: 36px;
+  flex: 1;
+}
+.features li {
+  font-size: 13.5px;
+  color: var(--text-mid);
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0ee;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.4;
+}
+.features li:last-child { border-bottom: none; }
+.features li .check {
+  width: 18px;
+  height: 18px;
+  background: var(--sage-pale);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-size: 10px;
+  color: var(--sage-dark);
+  font-weight: 700;
+}
+.card.bundle .features li .check {
+  background: var(--sage-pale);
+  color: var(--sage-dark);
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  text-decoration: none;
+  margin-top: auto;
+  letter-spacing: 0.3px;
+}
+.btn-sage {
+  background: #6A9E99;
+  color: #fff;
+}
+.btn-sage:hover { background: #5a8a85; }
+.btn-outline {
+  background: #A8C5C0;
+  color: #fff;
+  border: none;
+}
+.btn-outline:hover { background: #8db5b0; }
+.btn-gold {
+  background: #B8965A;
+  color: #fff;
+}
+.btn-gold:hover { background: #a0804a; }
+
+.savings-note {
+  text-align: center;
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 600;
+  margin-top: 14px;
+  letter-spacing: 0.3px;
+}
+
+/* ── CALCULATOR ── */
+.calc-bg {
+  background: var(--bg-section);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 40px 24px 80px;
+  margin-top: 0;
+}
+.calc-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.calc-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 24px;
+  padding: 36px 40px;
+  box-shadow: 0 4px 24px rgba(92,138,133,0.08);
+}
+@media(max-width:600px){ .calc-card { padding: 24px 18px; } }
+
+.calc-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.calc-sub {
+  font-size: 14px;
+  color: var(--text-mid);
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+.calc-sub strong { color: var(--sage-dark); }
+
+.sliders-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+@media(max-width:580px){ .sliders-grid { grid-template-columns: 1fr; } }
+
+.slider-group label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+.slider-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+  outline: none;
+  cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--sage);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(92,138,133,0.4);
+  cursor: pointer;
+}
+input[type=range]::-moz-range-thumb {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--sage);
+  border: 3px solid #fff;
+  cursor: pointer;
+}
+
+/* Results */
+.results-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.results-three { grid-template-columns: 1fr 1fr 1fr; }
+.results-four  { grid-template-columns: 1fr 1fr 1fr 1fr; }
+@media(max-width:700px){ .results-four { grid-template-columns: 1fr 1fr; } }
+@media(max-width:480px){ .results-row, .results-three, .results-four { grid-template-columns: 1fr; } }
+
+.age-row {
+  margin-bottom: 28px;
+}
+.age-check-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-mid);
+  cursor: pointer;
+  user-select: none;
+}
+.age-check-label input[type=checkbox] {
+  accent-color: var(--sage);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+.age-slider-wrap {
+  margin-top: 14px;
+  padding: 16px 20px;
+  background: var(--sage-ultra);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+.age-label-text {
+  display: block;
+  font-size: 12px;
+  color: var(--text-mid);
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+.age-label-text strong {
+  color: var(--sage-dark);
+  font-size: 15px;
+}
+
+.result-tile {
+  background: var(--sage-ultra);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 12px;
+  text-align: center;
+}
+.result-tile.pain {
+  background: #fff5f5;
+  border-color: #f0c0c0;
+}
+.result-tile.neutral {
+  background: var(--sage-ultra);
+  border-color: var(--border);
+}
+.r-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+.r-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.result-tile.pain .r-value { color: #c0504d; }
+.r-note { font-family: 'Inter', sans-serif; font-size: 11px; color: var(--text-light); }
+
+.insight-box {
+  background: linear-gradient(135deg, var(--sage-pale), var(--gold-light));
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 24px 28px;
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.insight-box strong { color: var(--sage-deep); }
+
+.momentum-callout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  background: linear-gradient(135deg, var(--text-dark) 0%, #3d6b66 100%);
+  border-radius: 18px;
+  padding: 36px 40px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.momentum-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 10px;
+}
+.momentum-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.momentum-body {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.7;
+  max-width: 380px;
+}
+.momentum-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.btn-momentum {
+  display: inline-block;
+  background: #ffffff;
+  color: var(--sage-deep);
+  padding: 15px 28px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+  letter-spacing: 0.2px;
+}
+.btn-momentum:hover {
+  background: var(--sage-pale);
+  transform: scale(1.02);
+}
+.momentum-fine {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.3px;
+}
+@media(max-width:600px){
+  .momentum-callout { padding: 28px 24px; flex-direction: column; }
+  .momentum-headline { font-size: 26px; }
+  .momentum-right { width: 100%; }
+  .btn-momentum { width: 100%; text-align: center; }
+}
+
+.disclaimer {
+  font-size: 11px;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  padding: 14px 18px;
+  background: var(--bg-section);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+  background: var(--sage);
+  border-radius: 14px;
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.cta-strip p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.5;
+}
+.cta-strip strong { color: #fff; font-size: 15px; }
+.cta-strip a {
+  background: #fff;
+  color: var(--sage-dark);
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.cta-strip a:hover { background: var(--sage-pale); }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 12px;
+  color: var(--text-light);
+  letter-spacing: 0.5px;
+}
+footer .brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  color: var(--text-mid);
+  margin-bottom: 6px;
+  font-style: italic;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Financial Health. Mental Wealth.</h1>
+  <p class="tagline">The Financial Wellness Co.</p>
+  <p class="hero-sub">Getting financially <span style="color: var(--sage-dark); font-weight: 600;">well</span> starts with a real plan — personalized guidance to get out of debt faster, spend smarter, and breathe easier. No judgment, ever.</p>
+</section>
+
+<!-- CALCULATOR -->
+<div class="calc-bg">
+  <div class="calc-inner">
+    <div class="calc-card">
+      <div class="calc-heading">Do You Know What Your Debt Is Really Costing You?</div>
+      <p class="calc-sub">Most people have never run these numbers. <strong>See yours below.</strong></p>
+
+      <div class="sliders-grid">
+        <div class="slider-group">
+          <label>Total Debt Balance</label>
+          <div class="slider-val" id="d-balance">$15,000</div>
+          <input type="range" id="s-balance" min="1000" max="100000" step="500" value="15000" oninput="calc()">
+        </div>
+        <div class="slider-group">
+          <label>Average Interest Rate (APR)</label>
+          <div class="slider-val" id="d-apr">22%</div>
+          <input type="range" id="s-apr" min="8" max="36" step="0.5" value="22" oninput="calc()">
+        </div>
+      </div>
+
+      <div class="age-row">
+        <div class="age-toggle">
+          <label class="age-check-label">
+            <input type="checkbox" id="age-toggle" onchange="calc()">
+            <span>Show how old I'll be when this is paid off</span>
+          </label>
+          <div class="age-slider-wrap" id="age-slider-wrap" style="display:none">
+            <span class="age-label-text">Current Age: <strong id="d-age">35</strong></span>
+            <input type="range" id="s-age" min="18" max="70" step="1" value="35" oninput="calc()">
+          </div>
+        </div>
+      </div>
+
+      <div class="results-row results-four">
+        <div class="result-tile neutral">
+          <div class="r-label">Est. Monthly Minimum</div>
+          <div class="r-value" id="r-minpay">—</div>
+          <div class="r-note">interest + 1% of balance</div>
+        </div>
+        <div class="result-tile pain">
+          <div class="r-label">Payoff Time</div>
+          <div class="r-value" id="r-years">—</div>
+          <div class="r-note" id="r-months-note">— months</div>
+        </div>
+        <div class="result-tile pain">
+          <div class="r-label">Total Interest Paid</div>
+          <div class="r-value" id="r-interest">—</div>
+          <div class="r-note">on top of what you owe</div>
+        </div>
+        <div class="result-tile pain">
+          <div class="r-label">Total You'll Pay Back</div>
+          <div class="r-value" id="r-totalpaid">—</div>
+          <div class="r-note" id="r-age-note">&nbsp;</div>
+        </div>
+      </div>
+
+      <div class="insight-box" id="insight-box">
+        Adjust the sliders above to see your personal debt snapshot.
+      </div>
+
+      <div class="momentum-callout">
+        <div class="momentum-left">
+          <div class="momentum-eyebrow">There's another way</div>
+          <div class="momentum-headline">What if you could be debt-free in 3-5 years instead of 28?</div>
+          <p class="momentum-body">You've carried this long enough. One real plan changes everything.</p>
+        </div>
+        <div class="momentum-right">
+        </div>
+      </div>
+
+      <p class="disclaimer">* Estimates use the standard bank formula: monthly interest + 1% of balance, or $25 minimum — the same method used by Chase, Bank of America, Capital One, and Wells Fargo. Actual minimums vary by lender and account. Results are for illustrative purposes only and do not constitute financial advice.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PACKAGES -->
+<div class="section-wrap">
+  <h2 class="section-heading">Choose Your Path Forward</h2>
+  <p class="section-sub">Each program is personalized to your situation — no cookie-cutter plans, just real results.</p>
+
+  <div class="cards">
+
+    <!-- Card 1 -->
+    <div class="card budget">
+      <div class="card-top">
+        <h2>Budget Remodel</h2>
+        <p class="card-tagline">Most people think they know where their money goes. We do a deep dive into your real spending patterns, uncover what's quietly draining your finances, and build a personalized plan.</p>
+      </div>
+      <div class="price-block">
+        <div class="amt"><sup>$</sup>197</div>
+      </div>
+      <div class="divider"></div>
+      <ul class="features">
+        <li><span class="check">✓</span>Expert spending analysis — we find the money you're losing</li>
+        <li><span class="check">✓</span>30-minute dedicated strategy session to review findings and next steps</li>
+        <li><span class="check">✓</span>Your personalized plan — plus 30 days of dedicated support to keep you on track</li>
+      </ul>
+      <a href="#" class="btn btn-outline">Get Started — $197</a>
+    </div>
+
+    <!-- Card 2: Featured -->
+    <div class="card featured">
+      <div class="card-top">
+        <h2>Momentum Method</h2>
+        <p class="card-tagline">Debt doesn't have to follow you forever. We develop a custom roadmap with a real debt-free date, a clear monthly plan, and the ongoing support to actually get there.</p>
+      </div>
+      <div class="price-block">
+        <div class="amt"><sup>$</sup>397</div>
+      </div>
+      <div class="divider"></div>
+      <ul class="features">
+        <li><span class="check">✓</span>A custom debt elimination strategy — built around your life and your goals</li>
+        <li><span class="check">✓</span>Your goal-based payoff plan — own your debt-free date, your numbers, and your future</li>
+        <li><span class="check">✓</span>60-minute dedicated strategy session to build your plan together</li>
+        <li><span class="check">✓</span>A done-for-you debt payoff system — track every payment, see your progress, and always know what's next</li>
+        <li><span class="check">✓</span>60 days of dedicated support to keep you on track</li>
+      </ul>
+      <a href="#" class="btn btn-sage">Start Momentum — $397</a>
+    </div>
+
+    <!-- Card 3: Bundle -->
+    <div class="card bundle">
+      <div class="card-top">
+        <h2>The Full Reboot</h2>
+        <p class="card-tagline">Imagine waking up with a plan for everything — your debt, your budget, your savings, your future. Real financial wellness isn't one plan, it's a complete reset — tailored to your goals, your timeline, and your terms. With real accountability and support every step of the way.</p>
+      </div>
+      <div class="price-block">
+        <div class="amt"><sup>$</sup>497</div>
+      </div>
+      <div class="divider"></div>
+      <ul class="features">
+        <li><span class="check">✓</span>A savings starter roadmap — build your financial foundation while eliminating debt</li>
+        <li><span class="check">✓</span>90-day plan refresh — our strategy grows with you</li>
+        <li><span class="check">✓</span>Two proactive email check-ins — we reach out to you, not the other way around</li>
+        <li><span class="check">✓</span>120 days of priority email support — 24 hour response guaranteed</li>
+        <li><span class="check">✓</span>Includes the complete MM™ + BR™ experience</li>
+      </ul>
+      <a href="#" class="btn btn-gold">Get Started — $497</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="brand">The Financial Wellness Co.</div>
+  <div>Financial Health. Mental Wealth. &nbsp;·&nbsp; San Diego, CA &nbsp;·&nbsp; © 2026</div>
+</footer>
+
+<script>
+function fmt$(n){ return '$' + Math.round(n).toLocaleString(); }
+
+// Show age slider when checkbox ticked
+document.getElementById('age-toggle').addEventListener('change', function(){
+  document.getElementById('age-slider-wrap').style.display = this.checked ? 'block' : 'none';
+  calc();
+});
+document.getElementById('s-age').addEventListener('input', function(){
+  document.getElementById('d-age').textContent = this.value;
+  calc();
+});
+
+function calc(){
+  var balance = +document.getElementById('s-balance').value;
+  var apr     = +document.getElementById('s-apr').value;
+  var r       = apr / 100 / 12;
+
+  document.getElementById('d-balance').textContent = fmt$(balance);
+  document.getElementById('d-apr').textContent     = apr + '%';
+
+  // Real bank formula: interest + 1% of balance, floor $25
+  var firstMonthInterest = balance * r;
+  var firstMinPay = Math.max(firstMonthInterest + balance * 0.01, 25);
+  document.getElementById('r-minpay').textContent = fmt$(firstMinPay);
+
+  // Amortize using interest + 1% method (recalculated each month)
+  var bal = balance, months = 0, totalInterest = 0;
+  while(bal > 0.01 && months < 960){
+    var interest  = bal * r;
+    var payment   = Math.max(interest + bal * 0.01, 25);
+    var principal = Math.min(payment - interest, bal);
+    if(principal <= 0){ months = 960; break; } // safety
+    totalInterest += interest;
+    bal           -= principal;
+    months++;
+  }
+
+  var totalPaid = balance + totalInterest;
+  var years     = Math.floor(months / 12);
+  var remMonths = Math.round(months % 12);
+
+  // Payoff time display — years big, months small
+  var yearsText, monthsNote;
+  if(months >= 960){
+    yearsText  = '30+ yrs';
+    monthsNote = 'at minimum payments only';
+  } else if(months < 12){
+    yearsText  = months + ' mo';
+    monthsNote = 'at minimum payments only';
+  } else {
+    yearsText  = years + ' yr' + (years !== 1 ? 's' : '');
+    monthsNote = (remMonths > 0 ? remMonths + ' month' + (remMonths !== 1 ? 's' : '') + ' · ' : '') + Math.round(months) + ' months total';
+  }
+
+  document.getElementById('r-years').textContent      = yearsText;
+  document.getElementById('r-months-note').textContent = monthsNote;
+  document.getElementById('r-interest').textContent   = fmt$(totalInterest);
+  document.getElementById('r-totalpaid').textContent  = fmt$(totalPaid);
+
+  // Age line — only if checkbox on
+  var ageNote = document.getElementById('r-age-note');
+  if(document.getElementById('age-toggle').checked && months < 960){
+    var currentAge  = +document.getElementById('s-age').value;
+    var ageAtPayoff = Math.round(currentAge + months / 12);
+    ageNote.innerHTML = "You'll be <strong>" + ageAtPayoff + "</strong> years old";
+  } else {
+    ageNote.innerHTML = '&nbsp;';
+  }
+
+  // Insight paragraph
+  var multiplier = (totalPaid / balance).toFixed(1);
+
+  var ageClose = '';
+  if(document.getElementById('age-toggle').checked && months < 960){
+    var ca2 = +document.getElementById('s-age').value;
+    var ap2 = Math.round(ca2 + months / 12);
+    ageClose = " You'd be <strong>" + ap2 + " years old</strong> when it's finally gone.";
+  }
+
+  document.getElementById('insight-box').innerHTML =
+    'On your <strong>' + fmt$(balance) + '</strong> balance, that\'s <strong>' + yearsText + '</strong> of minimum payments ' +
+    'and <strong>' + fmt$(totalPaid) + '</strong> out of your pocket — <strong>' + fmt$(totalInterest) + '</strong> of which is pure interest.' +
+    ageClose +
+    ' That\'s money that could be building your future instead. ' +
+    'Put simply: <strong>for every $1 you borrowed, it costs $' + multiplier + ' to pay it back.</strong>';
+}
+
+calc();
+</script>
+</body>
+</html>
