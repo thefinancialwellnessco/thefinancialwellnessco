@@ -1,0 +1,2544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ============================================================
+    THE FINANCIAL WELLNESS CO.
+    Version: 1.40
+    Built: 2026-03-11 (v1.32 — CG isolated to dedicated font link; fixes italic fallback to Playfair Display)
+    File: index.html
+    Hosting: GitHub Pages (single file, no build tools needed)
+    ============================================================
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Financial Wellness Co. | Financial Health. Mental Wealth.</title>
+  <meta name="description" content="Personalized debt payoff strategies and budget coaching for couples ready to reach their Debt Free Date." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Favicon: FW in teal -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%236AAB9C'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='14' fill='white'>FW</text></svg>" />
+
+  <style>
+    /* ============================================================
+       CSS VARIABLES & RESET
+       ============================================================ */
+    :root {
+      --teal:       #6AAB9C;
+      --teal-dark:  #4e8f81;
+      --charcoal:   #2D2D2D;
+      --white:      #FFFFFF;
+      --gray:       #888888;
+      --gray-light: #F7F7F7;
+      --gray-border: #E8E8E8;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+      --nav-height:  72px;
+      --max-width:   1120px;
+      --section-pad: 100px 24px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--charcoal);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============================================================
+       SECTION 1 — NAVIGATION
+       ============================================================ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid var(--gray-border);
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--charcoal);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      color: var(--gray);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--teal); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--charcoal);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* Mobile nav overlay */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-height);
+      left: 0; right: 0; bottom: 0;
+      background: var(--white);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      letter-spacing: 0.02em;
+    }
+
+    /* ============================================================
+       SECTION 2 — HERO
+       ============================================================ */
+    .hero {
+      background: #f7f4f0;
+      padding: 140px 48px 0;
+      text-align: center;
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+      font-weight: 300;
+      color: #1a2e22;
+      line-height: 1.1;
+      margin-bottom: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-headline em {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: normal;
+      font-weight: 300;
+    }
+
+    .hero-subhead {
+      font-family: 'Jost', var(--font-body), sans-serif;
+      font-size: 1.02rem;
+      font-weight: 300;
+      line-height: 1.72;
+      color: #4a5e52;
+      max-width: 580px;
+      margin: 0 auto 28px;
+    }
+
+    .hero-subhead .well-accent {
+      color: #5b9e8f;
+      font-weight: 500;
+    }
+
+    .btn-hero-cta {
+      display: inline-block;
+      background: #2d6e4e;
+      color: #fff;
+      font-family: 'Jost', var(--font-body), sans-serif;
+      font-size: 0.86rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      padding: 16px 40px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 28px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-hero-cta:hover {
+      background: #245a3f;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(26,46,34,0.15);
+    }
+
+    .hero-image-wrap {
+      width: 100%;
+      border-radius: 16px 16px 0 0;
+      overflow: hidden;
+      aspect-ratio: 3.2 / 1;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      display: block;
+    }
+    /* ============================================================
+       SECTION 3 — IMPACT STATS (4-card redesign)
+       ============================================================ */
+    .impact {
+      padding: var(--section-pad);
+      background: var(--white);
+      text-align: center;
+    }
+
+    .impact-label {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+      font-weight: 300;
+      color: #1a2e22;
+      letter-spacing: 0.01em;
+      margin-bottom: 56px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .impact-label em {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+      font-style: italic;
+      font-weight: 300;
+      color: #1a2e22;
+    }
+
+    .stat-hero__number-wrap {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .stat-hero__number-big {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 5.5rem;
+      font-weight: 300;
+      color: #1a2e22;
+      line-height: 1;
+    }
+
+    .stat-hero__number-unit {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: #7a8e82;
+      line-height: 1;
+    }
+
+    /* Hero row — 2 large cards */
+    .impact-hero-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      max-width: 740px;
+      margin: 0 auto 28px;
+    }
+
+    .impact-card-hero {
+      background: #eef4f0;
+      border-radius: 14px;
+      padding: 40px 28px 36px;
+      text-align: center;
+    }
+
+    .impact-card-hero .card-number {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 4.5rem;
+      font-weight: 400;
+      font-style: normal;
+      color: #1a2e22;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .impact-card-hero .card-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7aab8a;
+      margin-bottom: 14px;
+    }
+
+    .impact-card-hero .card-desc {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: #4a5e52;
+      line-height: 1.55;
+    }
+
+    /* Support row — 2 smaller cards */
+    .impact-support-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .impact-card-support {
+      background: #fff;
+      border: 1px solid rgba(26,46,34,0.08);
+      border-radius: 12px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .impact-card-support .card-number {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      font-style: normal;
+      color: #4a5e52;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .impact-card-support .card-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a8e82;
+      margin-bottom: 10px;
+    }
+
+    .impact-card-support .card-desc {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 300;
+      color: #4a5e52;
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       SECTION 4B — BRIDGE / THERE'S ANOTHER WAY
+       ============================================================ */
+    .interstitial {
+      padding: var(--section-pad);
+      background: #eef4f0;
+      text-align: center;
+    }
+
+    .interstitial-eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #1a2e22;
+      margin-bottom: 32px;
+    }
+
+    .interstitial-main {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 300;
+      font-style: normal;
+      color: #1a2e22;
+      line-height: 1.5;
+      max-width: 620px;
+      margin: 0 auto 28px;
+    }
+
+    .interstitial-punch {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: #4a5e52;
+      line-height: 1.6;
+      max-width: 480px;
+      margin: 0 auto 28px;
+    }
+
+    .interstitial-landing {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+      font-weight: 300;
+      font-style: italic;
+      color: #1a2e22;
+      line-height: 1.5;
+      max-width: 560px;
+      margin: 0 auto 40px;
+    }
+
+    .btn-bridge-cta {
+      display: inline-block;
+      background: #2d6e4e;
+      color: #fff;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      padding: 15px 38px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-bridge-cta:hover {
+      background: #245a3f;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(26,46,34,0.15);
+    }
+
+    /* ============================================================
+       MODAL
+       ============================================================ */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 28, 26, 0.55);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 52px 48px 48px;
+      max-width: 480px;
+      width: 100%;
+      position: relative;
+      animation: fadeUp 0.35s ease both;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      color: var(--gray);
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover { color: var(--charcoal); }
+
+    .modal-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .modal-heading {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      text-align: center;
+      margin-bottom: 32px;
+      line-height: 1.2;
+    }
+
+    .modal-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .modal-success {
+      display: none;
+      text-align: center;
+      padding: 24px 0 8px;
+    }
+
+    .modal-success h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+
+    .modal-success p {
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 540px) {
+      .modal {
+        padding: 44px 28px 36px;
+      }
+    }
+
+    /* ============================================================
+       SECTION 5 — HOW IT WORKS
+       ============================================================ */
+    .how {
+      padding: var(--section-pad);
+      background: var(--white);
+    }
+
+    .section-eyebrow {
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 80px;
+    }
+
+    .how-step {
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      max-width: 1000px;
+      margin: 0 auto 96px;
+    }
+
+    .how-step:last-child { margin-bottom: 0; }
+
+    .how-step.reverse { flex-direction: row-reverse; }
+
+    .how-step-text { flex: 1; }
+
+    .step-number {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 300;
+      color: var(--teal);
+      opacity: 0.35;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .step-desc {
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 420px;
+    }
+
+    .how-step-photo {
+      flex: 1;
+      aspect-ratio: 4/3;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--gray-light);
+    }
+
+    .how-step-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ============================================================
+       SECTION 6 — WHAT WE OFFER
+       ============================================================ */
+    .offer {
+      padding: 90px 24px 80px;
+      background: #FFFFFF;
+    }
+
+    .offer-eyebrow {
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-variant: small-caps;
+      color: var(--teal-dark);
+      margin-bottom: 56px;
+    }
+
+    /* Top row — two cards */
+    .offer-top-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: var(--max-width);
+      margin: 0 auto 24px;
+      align-items: stretch;
+    }
+
+    /* Bottom row — one centered card */
+    .offer-bottom-row {
+      display: flex;
+      justify-content: center;
+      max-width: var(--max-width);
+      margin: 0 auto 48px;
+    }
+
+    /* Base card */
+    .offer-card {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 44px 40px;
+      border: 1px solid var(--gray-border);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .offer-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(26,46,34,0.09);
+    }
+
+    /* Hero card — Full Reboot */
+    .offer-card-hero {
+      background: #eef4f0;
+      border-color: #cdddd4;
+      box-shadow: -3px 0 0 0 rgba(74,140,98,0.35), 0 8px 24px rgba(26,46,34,0.05);
+      height: 100%;
+    }
+
+    /* Bottom small card */
+    .offer-card-sm {
+      max-width: 260px;
+      width: 100%;
+      padding: 16px 20px;
+      border-color: #ebebeb;
+    }
+
+    /* Top row cards fill equal height */
+    .offer-top-row .offer-card {
+      height: 100%;
+    }
+
+    /* Gold badge */
+    .offer-badge-gold {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #9a7c3f;
+      font-weight: 600;
+      margin-bottom: 6px;
+      background: #fdf6e3;
+      border: 1px solid #d4b87a;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    /* Outline badge */
+    .offer-badge-outline {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 600;
+      margin-bottom: 6px;
+      border: 1px solid var(--teal);
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    .offer-card-label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 10px;
+    }
+
+    .offer-card-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+
+    .offer-card-tagline {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-style: normal;
+      color: #2e4a38;
+      margin-bottom: 20px;
+    }
+
+    /* Tagline on small bottom card — softer */
+    .offer-card-sm .offer-card-tagline {
+      font-size: 1rem;
+      color: var(--gray);
+    }
+
+    /* Title on small bottom card — softer */
+    .offer-card-sm .offer-card-title {
+      color: var(--charcoal);
+      font-size: 1.5rem;
+    }
+
+    .offer-card-divider {
+      border: none;
+      border-top: 1px solid var(--gray-border);
+      margin-bottom: 20px;
+    }
+
+    .offer-card-hero .offer-card-divider {
+      border-color: #cdddd4;
+    }
+
+    .offer-card-sm .offer-card-divider {
+      border-color: #f0f0f0;
+      opacity: 0.6;
+    }
+
+    .offer-card-walkaway-label {
+      font-size: 0.8125rem;
+      color: #888888;
+      margin-bottom: 10px;
+    }
+
+    .offer-card-walkaway-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .offer-card-walkaway-list li {
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      line-height: 1.7;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .offer-card-walkaway-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+    }
+
+    .offer-card-walkaway-list.muted li {
+      font-size: 0.78rem;
+      color: var(--gray);
+    }
+
+    /* CTA button row */
+    .offer-cta-row {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .btn-offer-cta {
+      display: inline-block;
+      padding: 14px 44px;
+      background: var(--teal);
+      color: var(--white);
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-offer-cta:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+    }
+
+    /* A la carte */
+    .offer-alacarte-label {
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-variant: small-caps;
+      color: #888888;
+      background: none;
+      margin-bottom: 28px;
+    }
+
+    .offer-alacarte {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: var(--max-width);
+      margin: 0 auto 32px;
+    }
+
+    .alacarte-card {
+      background: #f9fbf9;
+      border-radius: 12px;
+      padding: 24px 20px;
+      text-align: center;
+      border: 1px solid #e8efea;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .alacarte-card:hover {
+      border-color: var(--teal);
+    }
+
+    .alacarte-card-name {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+      letter-spacing: 0.01em;
+    }
+
+    .alacarte-card-sub {
+      font-size: 0.78rem;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+
+    .offer-closing {
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--gray);
+      font-style: normal;
+    }
+
+    /* ============================================================
+       SECTION 7 — CLIENT STORIES
+       ============================================================ */
+
+    /* Additional color variables for client stories */
+    .client-stories {
+      --teal-dark-cs:  #2C4A47;
+      --teal-mid-cs:   #4A7C77;
+      --teal-light-cs: #7AABA5;
+      --teal-soft-cs:  #C8DEDD;
+      --teal-pale-cs:  #EEF5F5;
+      --cream-cs:      #FAF8F4;
+      --cream-warm-cs: #F5EFE6;
+      --gold-cs:       #B8965A;
+      --gold-light-cs: #E8D5B0;
+      --text-dark-cs:  #2C4A47;
+      --text-body-cs:  #4A6360;
+      --text-muted-cs: #8A9E9C;
+    }
+
+    .client-stories {
+      padding: var(--section-pad);
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Ambient blobs */
+    .cs-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0;
+      animation: csBlobFade 1.8s ease 0.3s forwards;
+    }
+
+    .cs-blob-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(122,171,165,0.10) 0%, transparent 70%);
+      top: -100px; left: -120px;
+    }
+
+    .cs-blob-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(184,150,90,0.07) 0%, transparent 70%);
+      bottom: -80px; right: -100px;
+    }
+
+    .cs-blob-3 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(200,222,221,0.12) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes csBlobFade { to { opacity: 1; } }
+
+    /* Section wrapper */
+    .cs-wrapper {
+      max-width: 1060px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    .cs-header {
+      text-align: center;
+      margin-bottom: 60px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.2s forwards;
+    }
+
+    .cs-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 14px;
+    }
+
+    .cs-eyebrow::before,
+    .cs-eyebrow::after {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: #C8DEDD;
+      display: block;
+    }
+
+    .cs-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 46px);
+      font-weight: 400;
+      color: #2C4A47;
+      line-height: 1.2;
+    }
+
+    .cs-title em {
+      font-style: normal;
+      color: #4A7C77;
+    }
+
+    /* Grid */
+    .cs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* Base card */
+    .cs-card {
+      border-radius: 20px;
+      padding: 40px 36px;
+      opacity: 0;
+      transform: translateX(0) translateY(28px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cs-card-testimonial {
+      background: #EEF5F5;
+      border: 1.5px solid #C8DEDD;
+      box-shadow: 0 6px 32px rgba(44,74,71,0.10);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: csSlideInLeft 0.7s cubic-bezier(0.22,1,0.36,1) 0.35s forwards;
+    }
+
+    .cs-card-jeff {
+      background: var(--white);
+      border: 1.5px solid rgba(200,222,221,0.4);
+      box-shadow: 0 4px 18px rgba(44,74,71,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: csSlideInRight 0.7s cubic-bezier(0.22,1,0.36,1) 0.55s forwards;
+    }
+
+    @keyframes csSlideInLeft {
+      from { opacity: 0; transform: translateX(-32px) translateY(16px); }
+      to   { opacity: 1; transform: translateX(0) translateY(0); }
+    }
+
+    @keyframes csSlideInRight {
+      from { opacity: 0; transform: translateX(32px) translateY(16px); }
+      to   { opacity: 1; transform: translateX(0) translateY(0); }
+    }
+
+    /* Hover states */
+    .cs-card-testimonial:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 56px rgba(44,74,71,0.13);
+    }
+
+    .cs-card-jeff:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 0 6px rgba(122,171,165,0.07), 0 16px 44px rgba(44,74,71,0.10);
+    }
+
+    /* Gold top border — testimonial */
+    .cs-card-testimonial::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #E8D5B0, #B8965A);
+      border-radius: 20px 20px 0 0;
+    }
+
+    /* Teal top border — jeff */
+    .cs-card-jeff::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #7AABA5, #C8DEDD);
+      border-radius: 20px 20px 0 0;
+    }
+
+    /* Bottom ambient fade — jeff */
+    .cs-card-jeff::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 80px;
+      background: linear-gradient(to top, rgba(200,222,221,0.22), transparent);
+      pointer-events: none;
+      border-radius: 0 0 20px 20px;
+    }
+
+    /* Shared card label */
+    .cs-card-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #7AABA5;
+      display: block;
+      margin-bottom: 22px;
+    }
+
+    /* Stars */
+    .cs-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 22px;
+    }
+
+    .cs-star {
+      width: 15px; height: 15px;
+      fill: #B8965A;
+      color: #B8965A;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .cs-card-testimonial:hover .cs-star:nth-child(1) { transition-delay: 0.00s; transform: scale(1.25); filter: brightness(1.15); }
+    .cs-card-testimonial:hover .cs-star:nth-child(2) { transition-delay: 0.05s; transform: scale(1.25); filter: brightness(1.15); }
+    .cs-card-testimonial:hover .cs-star:nth-child(3) { transition-delay: 0.10s; transform: scale(1.25); filter: brightness(1.15); }
+    .cs-card-testimonial:hover .cs-star:nth-child(4) { transition-delay: 0.15s; transform: scale(1.25); filter: brightness(1.15); }
+    .cs-card-testimonial:hover .cs-star:nth-child(5) { transition-delay: 0.20s; transform: scale(1.25); filter: brightness(1.15); }
+
+    /* Testimonial quote wrap */
+    .cs-testimonial-text-wrap {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 26px;
+    }
+
+    .cs-testimonial-text-wrap::before {
+      content: '\201C';
+      position: absolute;
+      top: -10px; left: -4px;
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      line-height: 1;
+      color: #C8DEDD;
+      font-style: normal;
+      transition: color 0.3s ease, font-size 0.3s ease;
+    }
+
+    .cs-testimonial-text-wrap::after {
+      content: '\201D';
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      line-height: 0;
+      color: #C8DEDD;
+      font-style: normal;
+      vertical-align: -0.5em;
+      margin-left: 2px;
+      display: inline;
+      pointer-events: none;
+      transition: color 0.3s ease, font-size 0.3s ease;
+    }
+
+    .cs-card-testimonial:hover .cs-testimonial-text-wrap::before,
+    .cs-card-testimonial:hover .cs-testimonial-text-wrap::after {
+      color: #E8D5B0;
+      font-size: 58px;
+    }
+
+    .cs-testimonial-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.85;
+      color: #4A6360;
+      font-style: normal;
+      position: relative;
+      z-index: 1;
+      display: inline;
+    }
+
+    .cs-testimonial-body strong {
+      color: #2C4A47;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    /* Stat callout */
+    .cs-stat-callout {
+      display: flex;
+      gap: 0;
+      margin-bottom: 26px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(184,150,90,0.2);
+    }
+
+    .cs-stat-block {
+      flex: 1;
+      padding: 16px 18px;
+      text-align: center;
+      background: rgba(255,255,255,0.5);
+      position: relative;
+    }
+
+    .cs-stat-block:first-child {
+      border-right: 1px solid rgba(184,150,90,0.15);
+    }
+
+    .cs-stat-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+      background: rgba(255,255,255,0.5);
+      color: #B8965A;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .cs-stat-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8A9E9C;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .cs-stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1;
+      display: block;
+    }
+
+    .cs-stat-block.cs-stat-before .cs-stat-number {
+      color: #8A9E9C;
+      text-decoration: line-through;
+      text-decoration-color: rgba(138,158,156,0.5);
+    }
+
+    .cs-stat-block.cs-stat-after .cs-stat-number { color: #4A7C77; }
+
+    .cs-stat-sub {
+      font-size: 10px;
+      color: #8A9E9C;
+      display: block;
+      margin-top: 3px;
+    }
+
+    .cs-stat-block.cs-stat-after .cs-stat-sub {
+      color: #7AABA5;
+      font-weight: 500;
+    }
+
+    /* Progress bar */
+    .cs-progress-wrap { margin-bottom: 26px; }
+
+    .cs-progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .cs-progress-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8A9E9C;
+    }
+
+    .cs-progress-pct {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #4A7C77;
+    }
+
+    .cs-progress-pct span {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      color: #8A9E9C;
+      margin-left: 3px;
+    }
+
+    .cs-progress-track {
+      height: 7px;
+      background: rgba(200,222,221,0.4);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .cs-progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 100px;
+      background: linear-gradient(90deg, #7AABA5, #4A7C77);
+      transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+      position: relative;
+    }
+
+    .cs-progress-fill::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 20px; height: 100%;
+      background: rgba(255,255,255,0.4);
+      border-radius: 100px;
+      filter: blur(2px);
+    }
+
+    .cs-progress-fill.animated {
+      width: 20%; /* ← UPDATE THIS when milestone hits (e.g. 50%, 75%, 100%) */
+    }
+
+    .cs-progress-note {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      color: #8A9E9C;
+      margin-top: 6px;
+      font-style: normal;
+    }
+
+    /* Service badge */
+    .cs-service-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #F5EFE6;
+      border: 1px solid #E8D5B0;
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #B8965A;
+      margin-bottom: 26px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s ease;
+    }
+
+    .cs-service-badge::before {
+      content: '✦';
+      font-size: 8px;
+      transition: transform 0.6s ease;
+    }
+
+    .cs-service-badge::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -75%;
+      width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
+      transform: skewX(-15deg);
+      transition: none;
+    }
+
+    .cs-card-testimonial:hover .cs-service-badge::after {
+      animation: csShimmer 0.6s ease 0.1s forwards;
+    }
+
+    .cs-card-testimonial:hover .cs-service-badge::before { transform: rotate(90deg); }
+    .cs-card-testimonial:hover .cs-service-badge { border-color: #B8965A; }
+
+    @keyframes csShimmer {
+      from { left: -75%; }
+      to   { left: 125%; }
+    }
+
+    /* Attribution */
+    .cs-attribution {
+      padding-top: 20px;
+      border-top: 1px solid rgba(200,222,221,0.5);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cs-avatar-wrap {
+      position: relative;
+      width: 42px; height: 42px;
+      flex-shrink: 0;
+    }
+
+    .cs-avatar-ring {
+      position: absolute;
+      inset: -2px;
+      border-radius: 50%;
+      background: conic-gradient(#C8DEDD, #E8D5B0, #C8DEDD);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .cs-card-testimonial:hover .cs-avatar-ring {
+      opacity: 1;
+      animation: csSpinRing 2.5s linear infinite;
+    }
+
+    @keyframes csSpinRing { to { transform: rotate(360deg); } }
+
+    .cs-avatar {
+      position: relative;
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #C8DEDD, #F5EFE6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #4A7C77;
+      z-index: 1;
+      box-shadow: 0 0 0 2px var(--white);
+    }
+
+    .cs-client-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #2C4A47;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .cs-client-location {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: #8A9E9C;
+    }
+
+    /* Jeff card — quote wrap */
+    .cs-jeff-text-wrap {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .cs-jeff-text-wrap::before {
+      content: '\201C';
+      position: absolute;
+      top: -10px; left: -4px;
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      line-height: 1;
+      color: #C8DEDD;
+      font-style: normal;
+      transition: color 0.3s ease, font-size 0.3s ease;
+    }
+
+    .cs-card-jeff:hover .cs-jeff-text-wrap::before {
+      color: #7AABA5;
+      font-size: 58px;
+    }
+
+    .cs-jeff-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.85;
+      color: #4A6360;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cs-jeff-body p { margin-bottom: 16px; }
+    .cs-jeff-body p:last-child { margin-bottom: 0; }
+
+    /* Jeff signature row */
+    .cs-jeff-signature {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid #C8DEDD;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cs-jeff-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: #7AABA5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      color: var(--white);
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(74,124,119,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cs-card-jeff:hover .cs-jeff-avatar {
+      transform: scale(1.06);
+      box-shadow: 0 4px 14px rgba(74,124,119,0.4);
+    }
+
+    .cs-jeff-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-style: normal;
+      color: #2C4A47;
+      display: inline-block;
+      margin-bottom: 2px;
+      position: relative;
+    }
+
+    .cs-jeff-name::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0;
+      width: 0; height: 1px;
+      background: #4A7C77;
+      transition: width 0.4s ease;
+    }
+
+    .cs-card-jeff:hover .cs-jeff-name::after { width: 100%; }
+
+    .cs-jeff-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8A9E9C;
+      display: block;
+    }
+
+    /* Closing CTA */
+    .cs-closing-cta {
+      text-align: center;
+      margin-top: 52px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.8s forwards;
+    }
+
+    .cs-closing-line {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18px, 2.2vw, 24px);
+      font-weight: 400;
+      color: #4A6360;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    .cs-closing-line em {
+      font-style: normal;
+      color: #4A7C77;
+    }
+
+    .cs-closing-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #4A7C77;
+      color: var(--white);
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 4px 18px rgba(74,124,119,0.25);
+    }
+
+    .cs-closing-btn::after {
+      content: '→';
+      font-size: 15px;
+      transition: transform 0.25s ease;
+    }
+
+    .cs-closing-btn:hover {
+      background: #2C4A47;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(44,74,71,0.28);
+    }
+
+    .cs-closing-btn:hover::after { transform: translateX(4px); }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .cs-grid { grid-template-columns: 1fr; gap: 18px; }
+      .cs-card { padding: 32px 26px; }
+      .cs-testimonial-body, .cs-jeff-body { font-size: 14px; }
+    }
+
+    @media (max-width: 480px) {
+      .cs-card { padding: 26px 20px; }
+    }
+
+    /* ============================================================
+       SECTION 8 — TESTIMONIALS (legacy 3-card row)
+       ============================================================ */
+    .testimonials {
+      padding: var(--section-pad);
+      background: var(--white);
+    }
+
+    .testimonials-heading {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 56px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: var(--gray-light);
+      border-radius: 20px;
+      padding: 40px 36px;
+    }
+
+    .testimonial-quote {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .testimonial-attr {
+      font-size: 0.8rem;
+      color: var(--gray);
+      letter-spacing: 0.04em;
+    }
+
+    /* ============================================================
+       SECTION 8 — ABOUT
+       ============================================================ */
+    .about {
+      padding: var(--section-pad);
+      background: var(--gray-light);
+    }
+
+    .about-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-photo-wrap {
+      aspect-ratio: 4/5;
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-initials {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.05em;
+    }
+
+    .about-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .about-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .about-title {
+      font-size: 0.85rem;
+      color: var(--teal);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+
+    .about-bio {
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .about-tagline {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-style: normal;
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       SECTION 9 — CTA + CONTACT FORM
+       ============================================================ */
+    .cta {
+      padding: var(--section-pad);
+      background: var(--white);
+      text-align: center;
+    }
+
+    .cta-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .cta-subtext {
+      font-size: 0.95rem;
+      color: var(--gray);
+      margin-bottom: 56px;
+      letter-spacing: 0.02em;
+    }
+
+    .contact-form {
+      max-width: 560px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .form-field label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      background: var(--gray-light);
+      border: 1px solid var(--gray-border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      resize: none;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(106,171,156,0.15);
+    }
+
+    .form-field textarea { min-height: 130px; }
+
+    .btn-submit {
+      margin-top: 8px;
+      padding: 16px 40px;
+      background: var(--charcoal);
+      color: var(--white);
+      border: none;
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      align-self: center;
+    }
+
+    .btn-submit:hover {
+      background: var(--teal);
+      transform: translateY(-2px);
+    }
+
+    /* Form success message */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px;
+      background: rgba(106,171,156,0.08);
+      border-radius: 20px;
+      border: 1px solid rgba(106,171,156,0.3);
+    }
+
+    .form-success h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+
+    .form-success p {
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    /* ============================================================
+       SECTION 10 — FOOTER
+       ============================================================ */
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--gray-border);
+      padding: 40px 24px;
+    }
+
+    .footer-main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .footer-logo {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--charcoal);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--gray);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--teal); }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    .footer-legal {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid var(--gray-border);
+      font-size: 0.72rem;
+      color: var(--gray);
+      font-style: normal;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       ANIMATIONS
+       ============================================================ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
+       RESPONSIVE — MOBILE
+       ============================================================ */
+    @media (max-width: 768px) {
+
+      :root { --section-pad: 72px 20px; }
+
+      /* Nav */
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      /* Hero */
+      .hero { padding: 60px 24px 0; }
+      .hero-subhead { font-size: 0.94rem; max-width: 100%; }
+      .btn-hero-cta { margin-bottom: 24px; }
+      .hero-image-wrap { aspect-ratio: 2.4 / 1; border-radius: 12px 12px 0 0; }
+
+      /* Impact cards */
+      .impact-hero-row {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+      }
+
+      .impact-card-hero .card-number {
+        font-size: 3rem;
+      }
+
+      .stat-hero__number-big { font-size: 3.5rem; }
+      .stat-hero__number-unit { font-size: 1.3rem; }
+
+      .impact-support-row {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+      }
+
+      /* How it works */
+      .how-step,
+      .how-step.reverse {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .step-desc { max-width: 100%; }
+
+      /* Offer */
+      .offer-top-row { grid-template-columns: 1fr; }
+      .offer-alacarte { grid-template-columns: 1fr 1fr; }
+      .offer-card-sm { max-width: 100%; }
+
+      /* Testimonials */
+      .testimonials-grid { grid-template-columns: 1fr; }
+
+      /* About */
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      /* Footer */
+      .footer-main {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+      }
+
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
+
+      /* Buttons full width on mobile */
+      .btn-submit { width: 100%; max-width: 360px; }
+    }
+
+    @media (max-width: 480px) {
+      .offer-alacarte { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       SECTION 1 — NAVIGATION
+       ============================================================ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">The Financial Wellness Co.</a>
+
+      <ul class="nav-links">
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#offer">What We Offer</a></li>
+        <li><a href="#contact">Get Started</a></li>
+      </ul>
+
+      <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#how" onclick="toggleMenu()">How It Works</a>
+    <a href="#offer" onclick="toggleMenu()">What We Offer</a>
+    <a href="#contact" onclick="toggleMenu()">Get Started</a>
+  </div>
+
+
+  <!-- ============================================================
+       SECTION 2 — HERO
+       ============================================================ -->
+  <section class="hero" id="home">
+    <h1 class="hero-headline">Financial Health. <em>Mental Wealth.</em></h1>
+    <p class="hero-subhead">Getting financially well starts with a real plan — personalized guidance to get out of debt faster, spend smarter, and breathe easier. No judgment, ever.</p>
+    <button class="btn-hero-cta" onclick="openModal()">Start Your Financial Reset</button>
+    <div class="hero-image-wrap">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" alt="Beach sunset" loading="eager" />
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 3 — IMPACT STATS
+       ============================================================ -->
+  <section class="impact">
+    <p class="impact-label">Most people never stop to do the math.<br><em>Here&rsquo;s what it actually costs.</em></p>
+
+    <!-- Hero row: 2 large cards -->
+    <div class="impact-hero-row">
+
+      <div class="impact-card-hero">
+        <div class="stat-hero__number-wrap">
+          <span class="stat-hero__number-big">22</span>
+          <span class="stat-hero__number-unit">yrs</span>
+        </div>
+        <p class="card-label">Minimum Payments</p>
+        <p class="card-desc">To become debt free making only minimum payments. That&rsquo;s $18,500 in interest &mdash; on top of what you already owe.</p>
+      </div>
+
+      <div class="impact-card-hero">
+        <div class="stat-hero__number-wrap">
+          <span class="stat-hero__number-big">2</span>
+          <span class="stat-hero__number-unit">in 3</span>
+        </div>
+        <p class="card-label">Put Dreams On Hold</p>
+        <p class="card-desc">The vacation. The wedding. The house. The baby. Still waiting.</p>
+      </div>
+
+    </div>
+
+    <!-- Support row: 2 smaller cards -->
+    <div class="impact-support-row">
+
+      <div class="impact-card-support">
+        <p class="card-number">65%</p>
+        <p class="card-label">Paycheck to Paycheck</p>
+        <p class="card-desc">One unexpected bill away from falling behind.</p>
+      </div>
+
+      <div class="impact-card-support">
+        <p class="card-number">41%</p>
+        <p class="card-label">Couples</p>
+        <p class="card-desc">Say money is their #1 source of conflict.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 4B — BRIDGE / THERE'S ANOTHER WAY
+       ============================================================ -->
+  <section class="interstitial">
+    <p class="interstitial-eyebrow">There&rsquo;s another way</p>
+    <p class="interstitial-main">Replace &ldquo;someday&rdquo; with a real plan &mdash; for your debt, your budget, and the life you&rsquo;re trying to build.</p>
+    <p class="interstitial-punch">Not 22 years of minimum payments. Not another month of guessing.</p>
+    <p class="interstitial-landing">A clear path. A real payoff date. And a plan that fits your life.</p>
+    <button class="btn-bridge-cta" onclick="openModal()">Start Your Financial Reset</button>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+    <div class="modal" id="modalBox">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+
+      <p class="modal-eyebrow">Let's find your date.</p>
+      <h2 class="modal-heading">Your Debt Free Date<br>is closer than you think.</h2>
+
+      <form class="modal-form" id="modalForm" action="https://formspree.io/f/mzdaqnbp" method="POST">
+        <div class="form-field">
+          <label for="modal-name">Name</label>
+          <input type="text" id="modal-name" name="name" placeholder="Your name" required />
+        </div>
+        <div class="form-field">
+          <label for="modal-email">Email</label>
+          <input type="email" id="modal-email" name="email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-field">
+          <label for="modal-message">What brings you here?</label>
+          <textarea id="modal-message" name="message" placeholder="Tell me a little about your situation…"></textarea>
+        </div>
+        <button type="submit" class="btn-submit" style="width:100%; max-width:100%; margin-top:4px;">I'm Ready</button>
+      </form>
+
+      <div class="modal-success" id="modalSuccess">
+        <h3>Message received.</h3>
+        <p>I'll be in touch shortly.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       SECTION 5 — HOW IT WORKS
+       ============================================================ -->
+  <section class="how" id="how">
+    <p class="section-eyebrow">Here's How It Works</p>
+
+    <!-- Step 01 -->
+    <div class="how-step">
+      <div class="how-step-text">
+        <p class="step-number">01</p>
+        <h3 class="step-title">Crush the Debt</h3>
+        <p class="step-desc">A personalized debt payoff strategy built to reach your Debt Free Date faster. Not &#8220;someday&#8221; — an actual date.</p>
+      </div>
+      <div class="how-step-photo">
+        <img src="https://images.unsplash.com/photo-1461263895214-7761d3a942de?w=800&q=80" alt="Crush the Debt" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Step 02 -->
+    <div class="how-step reverse">
+      <div class="how-step-text">
+        <p class="step-number">02</p>
+        <h3 class="step-title">Build Your Budget</h3>
+        <p class="step-desc">Stop guessing where it went. Start deciding where it goes. Every dollar has a job.</p>
+      </div>
+      <div class="how-step-photo">
+        <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80" alt="Notebook and budget planning" loading="lazy" style="object-position: center center;" />
+      </div>
+    </div>
+
+    <!-- Step 03 -->
+    <div class="how-step">
+      <div class="how-step-text">
+        <p class="step-number">03</p>
+        <h3 class="step-title">Your Money Starts Working for You</h3>
+        <p class="step-desc">With debt gone and a budget that works, you're finally building something. Not just getting by.</p>
+      </div>
+      <div class="how-step-photo">
+        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&q=80" alt="Person with arms open in freedom outdoors" loading="lazy" />
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 6 — WHAT WE OFFER
+       ============================================================ -->
+  <section class="offer" id="offer">
+
+    <p class="offer-eyebrow">What We Work On Together</p>
+
+    <!-- Top Row — two cards -->
+    <div class="offer-top-row">
+
+      <!-- LEFT: Full Reboot hero card -->
+      <div class="offer-card offer-card-hero">
+        <span class="offer-badge-gold">✦ Signature Bundle</span>
+        <h3 class="offer-card-title">The Full Reboot™</h3>
+        <p class="offer-card-tagline">A real plan. A real date. A real life.</p>
+        <hr class="offer-card-divider" />
+        <p class="offer-card-walkaway-label">You'll walk away with:</p>
+        <ul class="offer-card-walkaway-list">
+          <li>We reach out to you — not the other way around</li>
+          <li>90-day strategy refresh — your plan grows with you</li>
+          <li>120 days priority support, guaranteed</li>
+          <li>A savings starter roadmap included</li>
+          <li>Includes the complete MM™ + BR™ experience</li>
+        </ul>
+      </div>
+
+      <!-- RIGHT: Momentum Method -->
+      <div class="offer-card">
+        <span class="offer-badge-outline">Signature Service</span>
+        <h3 class="offer-card-title">The Momentum Method™</h3>
+        <p class="offer-card-tagline">Your Debt Free Date. Faster.</p>
+        <hr class="offer-card-divider" />
+        <p class="offer-card-walkaway-label">You'll walk away with:</p>
+        <ul class="offer-card-walkaway-list">
+          <li>Your actual Debt Free Date</li>
+          <li>A personalized payoff roadmap</li>
+          <li>Tailored to your goals and your timeline</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom Row — one centered card -->
+    <div class="offer-bottom-row">
+      <div class="offer-card offer-card-sm">
+        <h3 class="offer-card-title">The Budget Remodel™</h3>
+        <p class="offer-card-tagline">Every dollar has a job.</p>
+        <hr class="offer-card-divider" />
+        <ul class="offer-card-walkaway-list muted">
+          <li>A budget that actually works</li>
+          <li>Clarity on where every dollar goes</li>
+          <li>No more wondering where it went</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="offer-cta-row">
+      <button class="btn-offer-cta" onclick="openModal()">Start Today</button>
+    </div>
+
+    <!-- Secondary services -->
+    <p class="offer-alacarte-label">More Ways We Can Help</p>
+
+    <div class="offer-alacarte">
+      <div class="alacarte-card">
+        <p class="alacarte-card-name">Financial Triage</p>
+        <p class="alacarte-card-sub">For when you need clarity fast</p>
+      </div>
+      <div class="alacarte-card">
+        <p class="alacarte-card-name">Life Event Planning</p>
+        <p class="alacarte-card-sub">Big moments deserve a plan</p>
+      </div>
+      <div class="alacarte-card">
+        <p class="alacarte-card-name">Savings Strategy</p>
+        <p class="alacarte-card-sub">Build something that lasts</p>
+      </div>
+      <div class="alacarte-card">
+        <p class="alacarte-card-name">Credit Optimization</p>
+        <p class="alacarte-card-sub">Your score, your leverage</p>
+      </div>
+    </div>
+
+    <p class="offer-closing">Don't see what you need? Just reach out.</p>
+
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 7B — CLIENT STORIES
+       ============================================================ -->
+  <section class="client-stories" id="client-stories">
+
+    <!-- Ambient blobs — decorative only -->
+    <div class="cs-blob cs-blob-1"></div>
+    <div class="cs-blob cs-blob-2"></div>
+    <div class="cs-blob cs-blob-3"></div>
+
+    <div class="cs-wrapper">
+
+      <!-- Header -->
+      <div class="cs-header">
+        <div class="cs-eyebrow">Client Stories</div>
+        <h2 class="cs-title">Real people. <em>Real results.</em></h2>
+      </div>
+
+      <div class="cs-grid">
+
+        <!-- Testimonial card (left) -->
+        <div class="cs-card cs-card-testimonial">
+          <span class="cs-card-label">What&#8217;s Possible</span>
+          <div class="cs-stars">
+            <svg class="cs-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="cs-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="cs-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="cs-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="cs-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+
+          <div class="cs-testimonial-text-wrap">
+            <p class="cs-testimonial-body">We didn&#8217;t even know where to start — we were just making our monthly payments and hoping for the best. When we saw the actual numbers of what our debt was really costing us, it was a wake-up call we didn&#8217;t expect. But honestly? Just going through the planning process felt like a huge weight off our shoulders. <strong>Someone finally understood our situation, had our back, and offered a real path forward — on our goals and our timeline.</strong> What surprised us most was how clear and structured everything was — the communication, the system, all of it.</p>
+          </div>
+
+          <!-- Stat callout -->
+          <div class="cs-stat-callout">
+            <div class="cs-stat-block cs-stat-before">
+              <span class="cs-stat-label">Original estimate</span>
+              <span class="cs-stat-number">18&#8211;24</span>
+              <span class="cs-stat-sub">months</span>
+            </div>
+            <div class="cs-stat-arrow">→</div>
+            <div class="cs-stat-block cs-stat-after">
+              <span class="cs-stat-label">New estimate</span>
+              <span class="cs-stat-number">8&#8211;10</span>
+              <span class="cs-stat-sub">months · on track</span>
+            </div>
+          </div>
+
+          <!-- Progress bar -->
+          <div class="cs-progress-wrap">
+            <div class="cs-progress-header">
+              <span class="cs-progress-label">Progress &#8212; Month 1</span>
+              <div class="cs-progress-pct">20%<span>complete</span></div>
+            </div>
+            <div class="cs-progress-track">
+              <div class="cs-progress-fill" id="csProgressFill"></div>
+            </div>
+            <!-- UPDATE this note when progress changes -->
+            <div class="cs-progress-note">20% complete in their first month — debt free date is real and on the calendar.</div>
+          </div>
+
+          <div class="cs-service-badge">Full Reboot Client</div>
+
+          <div class="cs-attribution">
+            <div class="cs-avatar-wrap">
+              <div class="cs-avatar-ring"></div>
+              <div class="cs-avatar">TP</div>
+            </div>
+            <div>
+              <span class="cs-client-name">The Pauls</span>
+              <span class="cs-client-location">Orange County, CA</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jeff's note (right) -->
+        <div class="cs-card cs-card-jeff">
+          <span class="cs-card-label">A note from Jeff</span>
+          <div class="cs-jeff-text-wrap">
+            <div class="cs-jeff-body">
+              <p>Finances can feel overwhelming — especially when you don&#8217;t know where to start.</p>
+              <p>What I offer isn&#8217;t an algorithm or a generic app. It&#8217;s a real human working with you in real time, building a plan around your actual life, your goals, and your timeline. No judgment. No templates.</p>
+              <p>Whether you&#8217;re an individual or a couple, I give you something most people never have — a clear goal, a real path, and something worth working toward.</p>
+            </div>
+          </div>
+          <div class="cs-jeff-signature">
+            <div class="cs-jeff-avatar">J</div>
+            <div>
+              <span class="cs-jeff-name">Jeff</span>
+              <span class="cs-jeff-title">Founder, The Financial Wellness Co.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Closing CTA -->
+      <div class="cs-closing-cta">
+        <p class="cs-closing-line">Every debt free date starts with a <em>free discovery call.</em></p>
+        <button class="cs-closing-btn" onclick="openModal()">Book Your Free Call</button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 8 — ABOUT
+       ============================================================ -->
+  <section class="about" id="about">
+    <div class="about-inner">
+
+      <div class="about-photo-wrap">
+        <span class="about-initials">JS</span>
+      </div>
+
+      <div class="about-text">
+        <p class="about-eyebrow">About</p>
+        <h2 class="about-name">Hi, I'm Jeff.</h2>
+        <p class="about-title">Founder</p>
+        <p class="about-bio">I started The Financial Wellness Co. because I believe everyone deserves a clear path to financial freedom — not someday, but with an actual date. Through The Momentum Method™ and The Budget Remodel™ I help couples and families get out of debt, build better budgets and start building the life they actually want.</p>
+        <p class="about-tagline">Financial strategist. Debt freedom advocate. On a mission to make financial wellness accessible.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 9 — CTA + CONTACT FORM
+       ============================================================ -->
+  <section class="cta" id="contact">
+    <h2 class="cta-heading">Ready when you are.</h2>
+    <p class="cta-subtext">Your Debt Free Date exists. Let's set it.</p>
+
+    <!-- Replace YOUR_FORMSPREE_ID below with your actual Formspree endpoint -->
+    <form
+      class="contact-form"
+      id="contactForm"
+      action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+      method="POST"
+    >
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+      </div>
+
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required />
+      </div>
+
+      <div class="form-field">
+        <label for="message">What brings you here?</label>
+        <textarea id="message" name="message" placeholder="Tell me a little about your situation…"></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Start Your Debt Free Date</button>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      <h3>Message received.</h3>
+      <p>I'll be in touch shortly. Your Debt Free Date is closer than you think.</p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 10 — FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="footer-main">
+      <span class="footer-logo">The Financial Wellness Co.</span>
+
+      <ul class="footer-links">
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#offer">What We Offer</a></li>
+        <li><a href="#contact">Get Started</a></li>
+      </ul>
+
+      <span class="footer-copy">© 2026 The Financial Wellness Co. All rights reserved.</span>
+    </div>
+
+    <p class="footer-legal">
+      The Financial Wellness Co. provides financial education and guidance only. We are not licensed financial advisors. Nothing on this site constitutes financial advice.
+    </p>
+  </footer>
+
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script>
+    // ---- Modal ----
+    function openModal() {
+      document.getElementById('modalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function handleOverlayClick(e) {
+      if (e.target === document.getElementById('modalOverlay')) {
+        closeModal();
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    const modalForm = document.getElementById('modalForm');
+    const modalSuccess = document.getElementById('modalSuccess');
+
+    modalForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(modalForm);
+      const submitBtn = modalForm.querySelector('.btn-submit');
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+
+      try {
+        const response = await fetch(modalForm.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          modalForm.style.display = 'none';
+          modalSuccess.style.display = 'block';
+        } else {
+          submitBtn.textContent = 'Something went wrong — try again';
+          submitBtn.disabled = false;
+        }
+      } catch (err) {
+        submitBtn.textContent = 'Something went wrong — try again';
+        submitBtn.disabled = false;
+      }
+    });
+
+    // ---- Mobile hamburger menu ----
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('mobileMenu');
+      const hamburger = document.querySelector('.hamburger');
+      if (menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
+
+    // ---- Formspree AJAX submission ----
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+      const submitBtn = form.querySelector('.btn-submit');
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          successMsg.style.display = 'block';
+        } else {
+          submitBtn.textContent = 'Something went wrong — try again';
+          submitBtn.disabled = false;
+        }
+      } catch (err) {
+        submitBtn.textContent = 'Something went wrong — try again';
+        submitBtn.disabled = false;
+      }
+    });
+
+    // ---- Client Stories: progress bar animate on scroll ----
+    const csFill = document.getElementById('csProgressFill');
+    if (csFill) {
+      const csProgressObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(() => csFill.classList.add('animated'), 300);
+            csProgressObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.4 });
+      csProgressObserver.observe(csFill);
+    }
+
+    // ---- Smooth active nav highlighting ----
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.style.color = link.getAttribute('href') === '#' + entry.target.id
+              ? '#6AAB9C'
+              : '';
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>
