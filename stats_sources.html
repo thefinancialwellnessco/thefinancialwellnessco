@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stats Source Sheet — The Financial Wellness Co.</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest: #2d6e4e;
+      --sage-pale: #eef4f0;
+      --cream: #f7f4f0;
+      --charcoal: #2d2d2d;
+      --mid: #555;
+      --light: #888;
+      --border: #dce8e0;
+      --gold: #b8965a;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      padding: 48px 24px 80px;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      border-bottom: 2px solid var(--forest);
+      padding-bottom: 28px;
+      margin-bottom: 40px;
+    }
+
+    .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--forest);
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      font-size: 14px;
+      color: var(--light);
+      font-style: italic;
+    }
+
+    /* Intro note */
+    .intro {
+      background: var(--sage-pale);
+      border-left: 3px solid var(--forest);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin-bottom: 40px;
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    /* Stat cards */
+    .stat-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+    }
+
+    .stat-header {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 600;
+      color: var(--forest);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+
+    .stat-claim {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+
+    .stat-context {
+      font-size: 13.5px;
+      color: var(--mid);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    .source-block {
+      background: var(--sage-pale);
+      border-radius: 8px;
+      padding: 12px 16px;
+    }
+
+    .source-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--forest);
+      margin-bottom: 4px;
+    }
+
+    .source-text {
+      font-size: 13px;
+      color: var(--mid);
+    }
+
+    .source-text a {
+      color: var(--forest);
+      text-decoration: underline;
+      word-break: break-all;
+    }
+
+    .note-tag {
+      display: inline-block;
+      background: #fff8ee;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      border-radius: 20px;
+      padding: 3px 10px;
+      margin-bottom: 10px;
+    }
+
+    .note-text {
+      font-size: 13px;
+      color: var(--mid);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--light);
+    }
+
+    .footer strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      color: var(--mid);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    @media print {
+      body { background: #fff; padding: 32px; }
+      .stat-card { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="brand">The Financial Wellness Co.</div>
+    <h1>Website Stats — Source Reference</h1>
+    <p>Internal document. For validation purposes only. Last updated March 2026.</p>
+  </div>
+
+  <div class="intro">
+    All statistics displayed on the website are sourced from peer-reviewed research, federal government surveys, or widely reported third-party studies. This document provides the full source citation, original context, and any relevant framing notes for each stat used.
+  </div>
+
+  <!-- STAT 1 -->
+  <div class="stat-card">
+    <div class="stat-header">
+      <div class="stat-number">22 yrs</div>
+      <div class="stat-label">Minimum Payments</div>
+    </div>
+    <div class="stat-claim">To become debt-free making only minimum payments — plus $18,500 in interest on top of what you already owe.</div>
+    <div class="stat-context">
+      This figure is a calculated illustration based on the average U.S. credit card balance (~$11,400 per household) at the average credit card APR (22.8%, a historic high as of 2023 per the CFPB), paying only the minimum each month. It is consistent with independent calculators from Bankrate, NerdWallet, and WalletHub, which show a $10,000 balance at 22% interest taking 19+ years and generating over $14,000 in interest — with a slightly higher balance, the 22-year figure is accurate.
+    </div>
+    <div class="source-block">
+      <div class="source-label">Sources</div>
+      <div class="source-text">
+        Average APR: Consumer Financial Protection Bureau (CFPB) — <a href="https://www.consumerfinance.gov" target="_blank">consumerfinance.gov</a><br>
+        Average balance data: Experian — <a href="https://www.experian.com/blogs/ask-experian/state-of-credit/" target="_blank">experian.com — State of Credit Report</a><br>
+        Minimum payment math verified via: <a href="https://www.bankrate.com/credit-cards/tools/minimum-payment-calculator/" target="_blank">Bankrate Minimum Payment Calculator</a> · <a href="https://wallethub.com/credit-card-minimum-payment-calculator" target="_blank">WalletHub Calculator</a> · <a href="https://www.nerdwallet.com/credit-cards/learn/credit-card-interest-calculator" target="_blank">NerdWallet Interest Calculator</a>
+      </div>
+    </div>
+    <br>
+    <div class="note-tag">Framing Note</div>
+    <div class="note-text">This is a calculated scenario, not a single published study. If challenged, clarify: "Based on average U.S. credit card balance and APR data from the CFPB, verified using Bankrate's minimum payment calculator. Results vary by balance and rate."</div>
+  </div>
+
+  <!-- STAT 2 -->
+  <div class="stat-card">
+    <div class="stat-header">
+      <div class="stat-number">2 in 3</div>
+      <div class="stat-label">Put Dreams on Hold</div>
+    </div>
+    <div class="stat-claim">2 in 3 Americans report living paycheck to paycheck — unable to save toward the vacation, the house, the wedding, the baby.</div>
+    <div class="stat-context">
+      LendingClub, in partnership with PYMNTS.com, has conducted a monthly "New Reality Check: The Paycheck-to-Paycheck Report" since 2022, surveying 3,000+ U.S. consumers. Their data has consistently shown approximately 60–67% of Americans living paycheck to paycheck. This has been independently reported and cited by CNBC, Fortune, and Forbes. The 2-in-3 figure represents the top of this consistent range.
+    </div>
+    <div class="source-block">
+      <div class="source-label">Sources</div>
+      <div class="source-text">
+        LendingClub / PYMNTS — New Reality Check: The Paycheck-to-Paycheck Report (ongoing, 2022–present)<br>
+        PYMNTS coverage: <a href="https://www.pymnts.com/economy/2023/2023-year-paycheck-consumer/" target="_blank">pymnts.com — 2023 Year in Review</a><br>
+        As reported by CNBC: <a href="https://www.cnbc.com/2024/10/30/many-americans-are-still-living-paycheck-to-paycheck-report-finds.html" target="_blank">cnbc.com — October 2024</a>
+      </div>
+    </div>
+    <br>
+    <div class="note-tag">Framing Note</div>
+    <div class="note-text">LendingClub is a lending company, so their commercial interest in this topic is worth noting internally. However, the finding has been independently verified and reported by neutral outlets including CNBC and Fortune, which strengthens credibility. Cite as: "per CNBC, citing LendingClub research."</div>
+  </div>
+
+  <!-- STAT 3 -->
+  <div class="stat-card">
+    <div class="stat-header">
+      <div class="stat-number">65%</div>
+      <div class="stat-label">Paycheck to Paycheck</div>
+    </div>
+    <div class="stat-claim">65% of Americans say they live paycheck to paycheck — one unexpected bill away from falling behind.</div>
+    <div class="stat-context">
+      From a nationally representative survey of 498 U.S. adults conducted by CNBC and SurveyMonkey in early 2024. The survey found a notable increase from 58% the prior year. This figure is consistent with a broad range of independent studies placing the paycheck-to-paycheck rate between 60–70% depending on methodology.
+    </div>
+    <div class="source-block">
+      <div class="source-label">Source</div>
+      <div class="source-text">
+        CNBC / SurveyMonkey — "Your Money International Financial Security Survey" (April 2024)<br>
+        <a href="https://www.cnbc.com/2024/04/09/most-of-americans-are-living-paycheck-to-paycheck-heres-why.html" target="_blank">cnbc.com — "More Americans say they are living paycheck to paycheck" — April 9, 2024</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAT 4 -->
+  <div class="stat-card">
+    <div class="stat-header">
+      <div class="stat-number">41%</div>
+      <div class="stat-label">Money &amp; Relationships</div>
+    </div>
+    <div class="stat-claim">41% of couples with consumer debt say money is their #1 source of conflict.</div>
+    <div class="stat-context">
+      From the Ramsey Solutions "Money, Marriage &amp; Communication" study — a large-scale survey of married American couples. Among couples carrying consumer debt, 41% report arguing about money more than any other topic. In contrast, only 25% of debt-free couples argue about money, and money doesn't even rank in the top five for that group. The framing on the website ("Money &amp; Relationships") is accurate: this stat applies specifically to couples with debt, which is the core audience of The Financial Wellness Co.
+    </div>
+    <div class="source-block">
+      <div class="source-label">Source</div>
+      <div class="source-text">
+        Ramsey Solutions — "Money, Marriage &amp; Communication" Study (2023)<br>
+        <a href="https://www.ramseysolutions.com/company/newsroom/releases/money-ruining-marriages-in-america" target="_blank">ramseysolutions.com — "Money Is Ruining Marriages in America"</a>
+      </div>
+    </div>
+    <br>
+    <div class="note-tag">Framing Note</div>
+    <div class="note-text">This stat applies to couples who carry consumer debt — not all couples. Since the website's audience is specifically people managing debt, this framing is accurate and appropriate. If pressed, clarify: "41% of couples carrying consumer debt, per Ramsey Solutions research."</div>
+  </div>
+
+  <div class="footer">
+    <strong>The Financial Wellness Co. — Internal Reference Only</strong>
+    Financial Health. Mental Wealth. &nbsp;·&nbsp; thefinancialwellnessco.github.io &nbsp;·&nbsp; Not for public distribution.
+  </div>
+
+</div>
+</body>
+</html>
